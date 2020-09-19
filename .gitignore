@@ -1,0 +1,14 @@
+# IDEA files.
+.idea
+*.iml
+# VI 
+*~
+# Eclipse
+.settings
+.project
+# Maven
+target
+dependency-reduced-pom.xml
+.factorypath
+# Log Files
+*.log
