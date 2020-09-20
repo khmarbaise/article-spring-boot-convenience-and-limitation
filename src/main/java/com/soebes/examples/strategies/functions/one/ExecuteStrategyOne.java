@@ -1,6 +1,7 @@
 package com.soebes.examples.strategies.functions.one;
 
-import static com.soebes.examples.strategies.functions.Helper.toMapWithKey;
+import static java.util.function.Function.identity;
+import static java.util.stream.Collectors.toMap;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class ExecuteStrategyOne {
   public ExecuteStrategyOne(List<IOneStrategy> strategies) {
     this.strategies = strategies.stream()
         .collect(
-            toMapWithKey(k -> k.getClass().getDeclaredAnnotation(Qualifier.class).value()));
+            toMap(k -> k.getClass().getDeclaredAnnotation(Qualifier.class).value(), identity()));
   }
 
   public void executeStrategyOne(String name) {
