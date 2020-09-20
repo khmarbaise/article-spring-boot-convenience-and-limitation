@@ -1,32 +1,21 @@
 package com.soebes.examples.strategies.functions.one;
 
-import java.util.HashMap;
+import static com.soebes.examples.strategies.functions.Helper.toMapWithKey;
+
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ExecuteStrategyOne {
 
-
   private Map<String, IOneStrategy> strategies;
 
-  public ExecuteStrategyOne(Map<String, IOneStrategy> strategies) {
-    this.strategies = strategies;
-  }
-
-  @Bean("IOneStrategy")
-  public Map<String, IOneStrategy> strategies(List<IOneStrategy> oneStrategies) {
-    HashMap<String, IOneStrategy> result = new HashMap<>();
-    for (IOneStrategy oneStrategy : oneStrategies) {
-      Qualifier annotationsByType = oneStrategy.getClass().getDeclaredAnnotation(Qualifier.class);
-      String value = annotationsByType.value();
-      result.put(value, oneStrategy);
-    }
-    result.entrySet().forEach(s -> System.out.println("k: '" + s.getKey() + "' v:'" + s.getValue() + "'"));
-    return result;
+  public ExecuteStrategyOne(List<IOneStrategy> strategies) {
+    this.strategies = strategies.stream()
+        .collect(
+            toMapWithKey(k -> k.getClass().getDeclaredAnnotation(Qualifier.class).value()));
   }
 
   public void executeStrategyOne(String name) {
