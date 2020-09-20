@@ -14,8 +14,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-# multiple-strategies
+# Spring Boot: Strategy Design Pattern - Convenience and Limitation
 
+Example project for the blog article
+
+ * https://blog.soebes.de/blog/2020/09/20/spring-boot-strategy-pattern/
 
 # Build
 
