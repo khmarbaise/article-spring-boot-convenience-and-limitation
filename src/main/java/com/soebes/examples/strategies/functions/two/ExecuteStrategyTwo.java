@@ -1,12 +1,13 @@
 package com.soebes.examples.strategies.functions.two;
 
-import static java.util.function.Function.identity;
-import static java.util.stream.Collectors.toMap;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+
+import static java.util.function.Function.identity;
+import static java.util.stream.Collectors.toMap;
 
 @Service
 public class ExecuteStrategyTwo {
@@ -15,9 +16,7 @@ public class ExecuteStrategyTwo {
 
   public ExecuteStrategyTwo(List<ITwoStrategy> strategies) {
     this.strategies = strategies.stream()
-        .collect(
-            toMap(k -> k.getClass().getDeclaredAnnotation(Qualifier.class).value(), identity()));
-
+        .collect(toMap(k -> k.getClass().getDeclaredAnnotation(Qualifier.class).value(), identity()));
   }
 
   public void executeStrategyOne(String name) {
