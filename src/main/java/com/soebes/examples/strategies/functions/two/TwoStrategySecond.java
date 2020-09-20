@@ -1,9 +1,9 @@
 package com.soebes.examples.strategies.functions.two;
 
-import static com.soebes.examples.strategies.functions.StrategyNames.SECOND;
-
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import static com.soebes.examples.strategies.functions.StrategyNames.SECOND;
 
 @Service
 @Qualifier(SECOND)
