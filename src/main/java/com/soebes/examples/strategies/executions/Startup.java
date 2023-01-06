@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class Startup {
 
-  private ExecuteStrategyOne executeStrategyOne;
-  private ExecuteStrategyTwo executeStrategyTwo;
+  private final ExecuteStrategyOne executeStrategyOne;
+  private final ExecuteStrategyTwo executeStrategyTwo;
 
   public Startup(ExecuteStrategyOne executeStrategyOne, ExecuteStrategyTwo executeStrategyTwo) {
     this.executeStrategyOne = executeStrategyOne;
