@@ -18,7 +18,7 @@
 
 Example project for the blog article
 
- * https://blog.soebes.de/blog/2020/09/20/spring-boot-strategy-pattern/
+ * https://blog.soebes.io/posts/2020/09/2020-09-20-spring-boot-strategy-pattern/
 
 # Build
 
